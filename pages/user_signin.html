@@ -6,7 +6,7 @@
 
     $users = $store->getAllUser();
     foreach ($users as $user) {
-        echo "<a href=\"?page_user_signin_action&user=\" . $user->id>" . $user->name . "</a><br>";
+        echo "<a href=\"?page_user_signin_action&user=". $user->id . "\">" . $user->name . "</a><br>";
     }
 
 ?>
