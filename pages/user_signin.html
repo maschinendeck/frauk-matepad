@@ -1,8 +1,12 @@
 <?php
+  
+    echo "Select user to sign in as<br>";
 
-    $user = $store->getAllUser()[0];
-    setcookie(COOKIE_USER, $user->id, time() + 300); // Expire in 5 Minutes
+    echo "<a href=\"?page=user_create\">New User</a><br>";
 
-    echo "You are now " . $user->name;
+    $users = $store->getAllUser();
+    foreach ($users as $user) {
+        echo "<a href=\"?page_user_signin_action&user=\" . $user->id>" . $user->name . "</a><br>";
+    }
 
 ?>
