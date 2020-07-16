@@ -48,6 +48,15 @@
 			return $this->userList;
 		}
 
+		public function fetchUserByID($id) {
+			foreach ($this->userList as $usr) {
+				if ($usr->id == $id) {
+					return $usr;
+				}
+			}
+			return null;
+		}
+
 		public function removeUser($user) {
 			foreach ($this->userList as $key => $value) {
 				if ($value->id == $item->id) {

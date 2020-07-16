@@ -1,9 +1,23 @@
+<?php 
+    if ($currentUser) {
+        $userName = $currentUser->name;
+        $userAction = "\"?action=user_signout\"";
+    } else {
+        $userName = "Sign In";
+        $userAction = "\"?action=user_signin\"";
+    }
+?>
+
 <html>
 
 <head>
-    <title>LedLady | Just Another WordPress site</title>
-    <link rel="stylesheet" href="theme/blog.css" />
-    <link rel="stylesheet" href="theme/font/font.css" />
+    <title>FrauK</title>
+    <link rel="stylesheet" href="theme/style.css" />
 </head>
 
 <body style="margin: 0;">
+    <div class="header-container">
+        <a class="user-container" href=<?php echo $userAction; ?>>
+            <p><?php echo $userName; ?></p>
+        </a>
+    </div>

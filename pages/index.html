@@ -1,7 +1,6 @@
 <?php
-    $store = new Storage;
 
-    $testItem = new ItemData();
+    /* $testItem = new ItemData();
     $testItem->name = "Test Item";
     $testItem->costs = 42;
 
@@ -11,7 +10,11 @@
 
     $store->createItem($testItem);
     $store->createUser($testUser);
-    $store->writeToDisk();
+    $store->writeToDisk(); */
+
+    foreach ($store->getAllUser() as $usr) {
+        echo $usr->name;
+    }
 
     echo "Okay";
 ?>

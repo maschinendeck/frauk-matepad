@@ -8,8 +8,16 @@
 	define("REQUEST_GET_PAGE_NAME", "page");
 	define("THEME_FILE_HEAD",       "head");
 	define("THEME_FILE_TAIL",       "tail");
+	define("COOKIE_USER",           "userCookie");
+
+	// Fetch database and read session cookie for later use by page
+	$store = new Storage;
+	$store->readFromDisk();
+	$currentUserID = isset($_COOKIE[COOKIE_USER]) ? $_COOKIE[COOKIE_USER] : "";
+	$currentUser = $store->fetchUserByID($currentUserID);
 
 	function loadPage($page, $plainError = false, $path = PATH_INCLUDE_PAGES) {
+		global $store, $currentUser;
 		$requestPage = $path . $page . ".html";
 		if (file_exists($requestPage)) {
 			include_once($requestPage);
