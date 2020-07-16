@@ -48,6 +48,16 @@
 			return $this->userList;
 		}
 
+		public function getUserByID($uid) {
+			$users = $this->getAlluser();
+			foreach ($users as $user) {
+				if ($user->id == $uid) {
+					return $user;
+				}
+			}
+			return null;
+		}
+
 		public function fetchUserByID($id) {
 			foreach ($this->userList as $usr) {
 				if ($usr->id == $id) {
