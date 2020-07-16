@@ -1,0 +1,8 @@
+<?php
+
+    $user = $store->getAllUser()[0];
+    setcookie(COOKIE_USER, $user->id, time() + 300); // Expire in 5 Minutes
+
+    echo "You are now " . $user->name;
+
+?>

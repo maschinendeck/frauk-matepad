@@ -1,10 +1,10 @@
 <?php 
     if ($currentUser) {
         $userName = $currentUser->name;
-        $userAction = "\"?action=user_signout\"";
+        $userAction = "\"?page=user_signout\"";
     } else {
         $userName = "Sign In";
-        $userAction = "\"?action=user_signin\"";
+        $userAction = "\"?page=user_signin\"";
     }
 ?>
 
