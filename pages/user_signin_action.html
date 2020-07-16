@@ -1,0 +1,12 @@
+<?php
+  
+    echo "Select user to sign in as<br>";
+
+    echo "<a href=\"?page=user_create\">New User</a><br>";
+
+    $users = $store->getAllUser();
+    foreach ($users as $user) {
+        echo "<a href=\"?page_user_signin_action&user=\" . $user->id>" . $user->name . "</a><br>";
+    }
+
+?>
