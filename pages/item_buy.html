@@ -1,0 +1,18 @@
+<?php
+    
+    if (isset($_GET["id"]) && isset($currentUser)) {
+
+        // Fetch item and user
+        $item = $store->getItemByID($_GET["id"]);
+        $user = $store->getUserByID($currentUser->id);
+        $user->balance -= $item->costs;
+        $store->writeToDisk();
+
+        echo "You payed: " . $item->costs;
+        echo "New balance: " . $user->balance; 
+        echo "<a href=\"?page=index\">Continue</a><br>";
+    } else {
+        echo "Ne das war nix";
+    }
+
+?>

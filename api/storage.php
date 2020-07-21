@@ -30,6 +30,16 @@
 			return $this->itemList;
 		}
 
+		public function getItemByID($iid) {
+			$items = $this->getAllItems();
+			foreach ($items as $item) {
+				if ($item->id == $iid) {
+					return $item;
+				}
+			}
+			return null;
+		}
+
 		public function removeItem($item) {
 			foreach ($this->itemList as $key => $value) {
 				if ($value->id == $item->id) {

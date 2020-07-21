@@ -1,11 +1,11 @@
 <?php
 
     foreach ($store->getAllItems() as $item) {
-        echo "<a href=\"?page=item_buy&id=" . $item->id . "\>";
+        echo "<a href=\"?page=item_buy&id=" . $item->id . "\"\>";
         echo $item->name; 
         echo " ";
         echo $item->costs;
-        echo "</a>";
+        echo "</a><br>";
     }
 
     echo "Okay";
