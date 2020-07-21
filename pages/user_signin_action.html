@@ -4,9 +4,9 @@
         $user = $store->getUserByID($_GET["user"]);
         setcookie(COOKIE_USER, $user->id, time() + 300); // Expire in 5Minutes)
         echo "Signed in as " . $user->name;
-        echo "<a href=\"\">Continue</a><br>";
+        echo "<a href=\"?page=index\">Continue</a><br>";
+    } else {
+        echo "Unable to sign you in";
     }
-
-    echo "Unable to sign you in";
 
 ?>

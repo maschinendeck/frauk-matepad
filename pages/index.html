@@ -1,19 +1,11 @@
 <?php
 
-    /* $testItem = new ItemData();
-    $testItem->name = "Test Item";
-    $testItem->costs = 42;
-
-    $testUser = new UserData();
-    $testUser->name = "Test User";
-    $testUser->balance = 32;
-
-    $store->createItem($testItem);
-    $store->createUser($testUser);
-    $store->writeToDisk(); */
-
-    foreach ($store->getAllUser() as $usr) {
-        echo $usr->name;
+    foreach ($store->getAllItems() as $item) {
+        echo "<a href=\"?page=item_buy&id=" . $item->id . "\>";
+        echo $item->name; 
+        echo " ";
+        echo $item->costs;
+        echo "</a>";
     }
 
     echo "Okay";
