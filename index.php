@@ -1,4 +1,5 @@
 <?php
+	require("./smarty/libs/Smarty.class.php");
 	include_once "api/storage.php";
 
 	define("PATH_INCLUDE_PAGES",    "./pages/");
@@ -9,6 +10,9 @@
 	define("THEME_FILE_HEAD",       "head");
 	define("THEME_FILE_TAIL",       "tail");
 	define("COOKIE_USER",           "userCookie");
+
+	// Smarty template engine
+	$smarty = new Smarty();
 
 	// Fetch database and read session cookie for later use by page
 	$store = new Storage;
