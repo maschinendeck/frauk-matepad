@@ -1,5 +1,5 @@
 <?php
-	require("./smarty/libs/Smarty.class.php");
+	require("./mustache/src/Mustache/Autoloader.php");
 	include_once "api/storage.php";
 
 	define("PATH_INCLUDE_PAGES",    "./pages/");
@@ -11,8 +11,9 @@
 	define("THEME_FILE_TAIL",       "tail");
 	define("COOKIE_USER",           "userCookie");
 
-	// Smarty template engine
-	$smarty = new Smarty();
+	// Mustache Template Engine
+	Mustache_Autoloader::register();
+	$mustache = new Mustache_Engine();
 
 	// Fetch database and read session cookie for later use by page
 	$store = new Storage;
@@ -20,11 +21,25 @@
 	$currentUserID = isset($_COOKIE[COOKIE_USER]) ? $_COOKIE[COOKIE_USER] : "";
 	$currentUser = $store->fetchUserByID($currentUserID);
 
+	function bindAndRenderTemplate($templateFile, $binding) {
+		global $mustache;
+		if (file_exists($templateFile)) {
+			$template = file_get_contents($templateFile);
+			echo $mustache->render($template, $binding);
+		}
+	}
+
 	function loadPage($page, $plainError = false, $path = PATH_INCLUDE_PAGES) {
-		global $store, $currentUser;
-		$requestPage = $path . $page . ".html";
-		if (file_exists($requestPage)) {
-			include_once($requestPage);
+		global $mustache, $store, $currentUser;
+		$requestPath = $path . $page;
+		$requestPagePHP  = $requestPath . "/page.php";
+		$requestPageHTML = $requestPath . "/page.html";
+		if (file_exists($requestPath)) {		// If the template page exists
+			if (file_exists($requestPagePHP)) {	// Calling a 'smart' page (with php)
+				include_once($requestPagePHP);
+			} else if (file_exists($requestPageHTML)) { 							// Calling a 'normal' page (no php code)
+				bindAndRenderTemplate($requestPageHTML, null);
+			}
 		} else {
 			if ($plainError) {
 				echo "<center>Error Loading Page - 404 File Not Found</center>";

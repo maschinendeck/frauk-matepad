@@ -9,9 +9,6 @@
         $store->createItem($item);
         $store->writeToDisk();
 
-        echo "<a href=\"?page=index\">Continue</a><br>";
-    } else {
-        echo "Ne das war nix";
     }
 
 ?>

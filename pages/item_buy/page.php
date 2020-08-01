@@ -1,5 +1,6 @@
 <?php
-    
+    $bindings = array();
+
     if (isset($_GET["id"]) && isset($currentUser)) {
 
         // Fetch item and user
@@ -8,11 +9,12 @@
         $user->balance -= $item->costs;
         $store->writeToDisk();
 
-        echo "You payed: " . $item->costs;
-        echo "New balance: " . $user->balance; 
-        echo "<a href=\"?page=index\">Continue</a><br>";
+        $bindings["costs"] = $item->costs;
+        $bindings["bindings"] = $user->balance; 
+
     } else {
         echo "Ne das war nix";
     }
 
+    echo $mustache->render($template, $bindings);
 ?>
