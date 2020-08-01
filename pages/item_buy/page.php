@@ -10,11 +10,10 @@
         $store->writeToDisk();
 
         $bindings["costs"] = $item->costs;
-        $bindings["bindings"] = $user->balance; 
-
+        $bindings["balance"] = $user->balance; 
+        bindAndRenderTemplate(__DIR__ . "/template.html", $bindings);
     } else {
         echo "Ne das war nix";
     }
 
-    echo $mustache->render($template, $bindings);
 ?>

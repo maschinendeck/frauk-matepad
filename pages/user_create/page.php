@@ -9,10 +9,9 @@
         $store->createUser($user);
         $store->writeToDisk();
 
-        echo "<a href=\"?page=user_signin_action&user=\"" . $user->id . ">Continue as user</a><br>";
+        bindAndRenderTemplate(__DIR__ . "/template.post.html");
     } else {
-        echo "<a href=\"?page=user_signin\">Select user</a><br>";
-        echo "<a href=\"?page=user_create\">Create user</a><br>";
+        bindAndRenderTemplate(__DIR__ . "/template_form.html");
     }
 
 ?>
