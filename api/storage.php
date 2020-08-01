@@ -9,6 +9,7 @@
 		public $id;
 		public $name;
 		public $costs;
+		public $image;
 	}
 
 	class Storage {
@@ -87,8 +88,8 @@
 
 		// Serialization
 		public function writeToDisk() {
-			file_put_contents("user.json", json_encode($this->userList));
-			file_put_contents("item.json", json_encode($this->itemList));
+			file_put_contents("user.json", json_encode($this->userList, JSON_PRETTY_PRINT));
+			file_put_contents("item.json", json_encode($this->itemList, JSON_PRETTY_PRINT));
 		}
 
 		public function readFromDisk() {
