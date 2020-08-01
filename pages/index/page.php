@@ -1,7 +1,7 @@
 <?php
 
     foreach ($store->getAllItems() as $item) {
-        $bindings = array("itemid" => $item->id, "name" => $item->name, "costs" => $item->costs);
+        $bindings = array("id" => $item->id, "name" => $item->name, "costs" => $item->costs, "image" => $item->image);
         bindAndRenderTemplate(__DIR__ . "/template_item.html", $bindings);
     }
 
