@@ -1,8 +1,13 @@
 /* General Stuff */
 
+body {
+    background-color: #000;
+    color: #FD0;
+}
+
 .header-container {
     height: 32px;
-    background-color: gray;
+    background-color: #333;
 }
 
 .user-container {
@@ -18,16 +23,31 @@
 /* Items */
 .item {
     margin: 1em;
+    float: left;
+    background-color: #333;
+    width: 12em;
+    height: 15em;
 }
 
-.item a > img {
-    width: 12em;
-    border-style: solid;
-    border-width: 0.2em;
-    border-color: black;
-    border-radius: 0.2em;
+.item img {
+    width: 100%;
+}
+
+.item a {
+    text-decoration: none;
 }
 
 .item p {
-    display: block;
+    color: #FD0;
+}
+
+.item .name {
+    margin: 4px 0px 0px 8px;
+    font-weight: bold;
+}
+
+.item .price {
+    margin: 0px 8px 0px 0px;
+    text-align: right;
+    font-style: italic;
 }
