@@ -2,6 +2,7 @@
 	class UserData {
 		public $id;
 		public $name;
+		public $avatar;
 		public $balance;
 	}
 
