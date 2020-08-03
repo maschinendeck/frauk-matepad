@@ -9,6 +9,8 @@ p {
     color: #FD0;
 }
 
+/* Page Header */
+
 .header-container {
     height: 2em;
     background-color: #333;
@@ -72,3 +74,50 @@ p {
     text-align: right;
     font-style: italic;
 }
+
+/* Forms */
+.form {
+    width: 24em;
+    margin: 0em auto 0em auto;
+}
+
+.form > label {
+    width: 6em;
+    margin: 0em 1em 0em 0em;
+    float: left;
+    color: #FD0;
+    font-weight: bold;
+    text-align: right;
+}
+
+.form > input {
+    display: block;
+}
+
+.form > input[type="submit"] {
+    margin: 2em 0 0 auto;
+}
+
+.form > a {
+    text-align: right;
+    text-decoration: none;
+}
+
+/* Pages - User Create */
+
+.page-user-create img {
+    display: block;
+    width: 320px;
+    margin: 2em auto 0 auto;
+}
+
+.page-user-create > p {
+    display: block;
+    width: 16em;
+    margin: 2em auto 2em auto;
+}
+
+.page-user-create > .form > a > p {
+    margin: 0.2em 0 0 0;
+}
+

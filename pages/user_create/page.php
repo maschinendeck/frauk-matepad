@@ -9,9 +9,9 @@
         $store->createUser($user);
         $store->writeToDisk();
 
-        bindAndRenderTemplate(__DIR__ . "/template.post.html");
+        bindAndRenderTemplate(__DIR__ . "/template.post.html", null);
     } else {
-        bindAndRenderTemplate(__DIR__ . "/template_form.html");
+        bindAndRenderTemplate(__DIR__ . "/template_form.html", null);
     }
 
 ?>

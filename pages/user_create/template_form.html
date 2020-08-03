@@ -1,8 +1,18 @@
-<a href=\"?page=user_signin\">Select user</a><br>
-<a href=\"?page=user_create\">Create user</a><br>
+<div class="page-user-create">
+    <img src="./images/new_user.gif"/>
 
-<form action="?page=user_create" method="post">
-    <label for="name">Name</label>
-    <input type="text" name="name"/>
-    <input type="submit" value="Submit">
-</form>
+    <p>
+        Create a new user. Just enter your name and a link to your avatar, I'll do the rest.
+    </p>
+
+    <form class="form" action="?page=user_create" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name"/>
+        <label for="avatar">Avatar URL</label>
+        <input type="text" name="avatar"/>
+        <input type="submit" value="Create Account">
+        <a href=\"?page=user_signin\">
+            <p>Or SignIn Instead</p>
+        </a>
+    </form>
+</div>
