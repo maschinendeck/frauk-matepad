@@ -21,7 +21,8 @@
         // SignIn the newly created user
         $user->signin();
 
-        bindAndRenderTemplate(__DIR__ . "/template_post.html", null);
+        $bindings = array("userName" => $userName, "userAvatar" => $userAvatarFile);
+        bindAndRenderTemplate(__DIR__ . "/template_post.html", $bindings);
     } else {
         bindAndRenderTemplate(__DIR__ . "/template_form.html", null);
     }
