@@ -4,6 +4,15 @@
 		public $name;
 		public $avatar;
 		public $balance;
+
+		public function signin() {
+			setcookie(COOKIE_USER, $user->id, time() + 300); // Expire in 5Minutes
+		}
+
+		public function signout() {
+			setcookie(COOKIE_USER, ""); // Never Expire
+		}
+
 	}
 
 	class ItemData {

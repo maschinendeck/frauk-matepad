@@ -19,7 +19,7 @@
         $store->writeToDisk();
 
         // SignIn the newly created user
-        
+        $user->signin();
 
         bindAndRenderTemplate(__DIR__ . "/template_post.html", null);
     } else {
