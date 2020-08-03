@@ -6,7 +6,7 @@
 		public $balance;
 
 		public function signin() {
-			setcookie(COOKIE_USER, $user->id, time() + 300); // Expire in 5Minutes
+			setcookie(COOKIE_USER, $this->id, time() + 300); // Expire in 5Minutes
 		}
 
 		public function signout() {
