@@ -2,7 +2,7 @@
   
     if (isset($_GET["user"])) {
         $user = $store->getUserByID($_GET["user"]);
-        $user->signin();
+        $store->signinUser($_GET["user"]);
         $bindings = array("username" => $user->name);
         bindAndRenderTemplate(__DIR__ . "/template_post.html", $bindings);
     } else {

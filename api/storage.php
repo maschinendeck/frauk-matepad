@@ -1,20 +1,14 @@
 <?php
+
+	// This class can only contain data, functions will be lost on de/serialization
 	class UserData {
 		public $id;
 		public $name;
 		public $avatar;
 		public $balance;
-
-		public function signin() {
-			setcookie(COOKIE_USER, $this->id, time() + 300); // Expire in 5Minutes
-		}
-
-		public function signout() {
-			setcookie(COOKIE_USER, ""); // Never Expire
-		}
-
 	}
 
+	// This class can only contain data, functions will be lost on de/serialization
 	class ItemData {
 		public $id;
 		public $name;
@@ -94,6 +88,15 @@
 					unset($key);
 				}
 			}
+		}
+
+		// TODO: check if UID is valid
+		public function signinUser($id) {
+			setcookie(COOKIE_USER, $id, time() + 300); // Expire in 5Minutes
+		}
+
+		public function signoutUser() {
+			setcookie(COOKIE_USER, ""); // Never Expire
 		}
 
 		// Serialization
