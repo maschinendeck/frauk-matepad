@@ -1,5 +1,10 @@
 <?php
 
+    $bindingsCharge = array("href" => $currentUser ? "?page=deposit" : "?page=user_signin",
+                            "name" => "Deposit", 
+                            "price" => "Rich Bitch",
+                            "image" => "deposit.jpg");
+    bindAndRenderTemplate(__DIR__ . "/template_item.html", $bindingsCharge);
 
     foreach ($store->getAllItems() as $item) {
         $bindings = array(  "href" => $currentUser ? "?page=item_buy&id=" . $item->id : "?page=user_signin",
