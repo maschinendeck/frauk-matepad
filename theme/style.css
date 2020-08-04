@@ -43,7 +43,36 @@ p {
     font-size: larger;
 }
 
-/* Items */
+/* Forms */
+.form {
+    width: 24em;
+    margin: 0em auto 0em auto;
+}
+
+.form > label {
+    width: 6em;
+    margin: 0em 1em 0em 0em;
+    float: left;
+    color: #FD0;
+    font-weight: bold;
+    text-align: right;
+}
+
+.form > input {
+    display: block;
+}
+
+.form > input[type="submit"] {
+    margin: 2em 0 0 auto;
+}
+
+.form > a {
+    text-align: right;
+    text-decoration: none;
+}
+
+
+/* Pages - Index */
 .item {
     margin: 1em;
     float: left;
@@ -75,33 +104,35 @@ p {
     font-style: italic;
 }
 
-/* Forms */
-.form {
-    width: 24em;
-    margin: 0em auto 0em auto;
-}
-
-.form > label {
-    width: 6em;
-    margin: 0em 1em 0em 0em;
-    float: left;
-    color: #FD0;
-    font-weight: bold;
-    text-align: right;
-}
-
-.form > input {
+.index-user {
     display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 8em;
+    height: 3em;
+    background-color: #333;
 }
 
-.form > input[type="submit"] {
-    margin: 2em 0 0 auto;
+.index-user > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100%;
+    font-size: larger;
+    font-weight: bold;
 }
 
-.form > a {
-    text-align: right;
-    text-decoration: none;
+.balance-red {
+    color: black;
+    background-color: red;
 }
+
+.balance-green {
+    background-color: #333;
+}
+
 
 /* Pages - User Create */
 

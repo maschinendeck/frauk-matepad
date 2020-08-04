@@ -9,4 +9,10 @@
         bindAndRenderTemplate(__DIR__ . "/template_item.html", $bindings);
     }
 
+    if ($currentUser) {
+        $bindingsUser = array(  "balance" => number_format($currentUser->balance / 100.0, 2) . "€",
+                                "colorStyle" => $currentUser->balance < 0 ? "balance-red" : "balance-green");
+        bindAndRenderTemplate(__DIR__ . "/template_user.html", $bindingsUser);
+    }
+
 ?>
