@@ -34,10 +34,10 @@
 		$requestPath = $path . $page;
 		$requestPagePHP  = $requestPath . "/page.php";
 		$requestPageHTML = $requestPath . "/page.html";
-		if (file_exists($requestPath)) {		// If the template page exists
-			if (file_exists($requestPagePHP)) {	// Calling a 'smart' page (with php)
+		if (file_exists($requestPath)) {				// If the template page exists
+			if (file_exists($requestPagePHP)) {			// Calling a 'smart' page (with php)
 				include_once($requestPagePHP);
-			} else if (file_exists($requestPageHTML)) { 							// Calling a 'normal' page (no php code)
+			} else if (file_exists($requestPageHTML)) {	// Calling a 'normal' page (no php code)
 				bindAndRenderTemplate($requestPageHTML, null);
 			}
 		} else {
