@@ -143,3 +143,28 @@ p {
     text-align: center;
     color: #FD0;
 }
+
+/* Page - User SignIn Selection */
+.user-select {
+    margin: 1em;
+    float: left;
+    width: 12em;
+    height: 15em;
+    background-color: #FFF;
+    text-decoration: none;
+}
+
+.user-select > img {
+    display: block;
+    width: 100%;
+}
+
+.user-select p {
+    display: flex;
+    height: 3em;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    font-weight: bold;
+}
