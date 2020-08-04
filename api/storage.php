@@ -14,6 +14,7 @@
 		public $name;
 		public $costs;
 		public $image;
+		public $coffein;
 	}
 
 	class Storage {

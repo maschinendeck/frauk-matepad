@@ -3,42 +3,49 @@
         "id": "d91e4749455fc28084ce503af391a4d22f4cd53c",
         "name": "Club Mate",
         "costs": 150,
+        "coffein": 20,
         "image": "club_mate.jpg"
     },
     {
         "id": "bea39247ea32cb021eee12da0aeb540d4e6e0c99",
         "name": "MioMio Mate",
         "costs": "100",
+        "coffein": 20,
         "image": "miomio.jpg"
     },
     {
         "id": "7b9f0d671a0c188da21a9808828bcc7681d3ed09",
         "name": "Fritz Mate",
         "costs": "100",
+        "coffein": 25,
         "image": "fritz_mate.jpg"
     },
     {
         "id": "27faa78a3f580c6a7b5d597fdbbacc7e608f23ab",
         "name": "Flora Mate",
         "costs": "Unbezahlbar",
+        "coffein": 18,
         "image": "flora.jpg"
     },
     {
         "id": "53dd8a6b74e227fe5610eac11149aa70055facbd",
         "name": "Club Mate Cola",
         "costs": "100",
+        "coffein": 20,
         "image": "club_mate_cola.jpg"
     },
     {
         "id": "9acd5055ade0fe21eb37642ff187e9ca67cb9c3b",
         "name": "Fritz Cola",
         "costs": "100",
+        "coffein": 25,
         "image": "fritz_cola.jpg"
     },
     {
         "id": "4fc8c5168d8a1cf15dd33dd773c35e302fe0fff5",
         "name": "Fritz Limo",
         "costs": "100",
+        "coffein": 0,
         "image": "fritz_limo.jpg"
     }
 ]
