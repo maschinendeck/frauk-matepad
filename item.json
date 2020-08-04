@@ -14,7 +14,7 @@
     {
         "id": "7b9f0d671a0c188da21a9808828bcc7681d3ed09",
         "name": "Fritz Mate",
-        "costs": "150",
+        "costs": "100",
         "image": "fritz_mate.jpg"
     },
     {
@@ -26,7 +26,7 @@
     {
         "id": "53dd8a6b74e227fe5610eac11149aa70055facbd",
         "name": "Club Mate Cola",
-        "costs": "150",
+        "costs": "100",
         "image": "club_mate_cola.jpg"
     },
     {
@@ -38,7 +38,7 @@
     {
         "id": "4fc8c5168d8a1cf15dd33dd773c35e302fe0fff5",
         "name": "Fritz Limo",
-        "costs": "150",
+        "costs": "100",
         "image": "fritz_limo.jpg"
     }
 ]
