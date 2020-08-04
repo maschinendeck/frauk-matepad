@@ -71,8 +71,11 @@ p {
     text-decoration: none;
 }
 
-
 /* Pages - Index */
+.index-content {
+    padding-right: 3em;
+}
+
 .item {
     display: block;
     margin: 1em;

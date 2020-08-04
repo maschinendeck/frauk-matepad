@@ -11,9 +11,11 @@
 
         $bindings["costs"] = $item->costs;
         $bindings["balance"] = $user->balance; 
-        bindAndRenderTemplate(__DIR__ . "/template.html", $bindings);
+        
+        echo "<meta http-equiv=\"refresh\" content=\"0;url=?page=index\">";
+
     } else {
-        echo "Ne das war nix";
+        bindAndRenderTemplate(__DIR__ . "/template.html", $bindings);
     }
 
 ?>

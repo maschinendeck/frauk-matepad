@@ -1,10 +1,12 @@
 <?php
 
+    echo "<div class=\"index-content\">";
+
     $bindingsCharge = array("href" => $currentUser ? "?page=deposit" : "?page=user_signin",
                             "name" => "Deposit", 
                             "price" => "Rich Bitch",
                             "image" => "deposit.jpg");
-    bindAndRenderTemplate(__DIR__ . "/template_item.html", $bindingsCharge);
+    bindAndRenderTemplate(__DIR__ . "/template_deposit.html", $bindingsCharge);
 
     foreach ($store->getAllItems() as $item) {
         $bindings = array(  "id" => $item->id,
@@ -20,5 +22,7 @@
                                 "colorStyle" => $currentUser->balance < 0 ? "balance-red" : "balance-green");
         bindAndRenderTemplate(__DIR__ . "/template_user.html", $bindingsUser);
     }
+
+    echo "</div>";
 
 ?>
