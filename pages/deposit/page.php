@@ -12,8 +12,6 @@
             array("value" =>  1000, "img" =>  "1000.jpg"),
             array("value" =>  2000, "img" =>  "2000.jpg"),
             array("value" =>  5000, "img" =>  "5000.jpg"),
-            array("value" => 10000, "img" => "10000.jpg"),
-            array("value" => 20000, "img" => "20000.jpg")
         );
     
         foreach ($depositOptions as $option) {
