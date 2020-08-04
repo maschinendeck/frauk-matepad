@@ -1,6 +1,6 @@
 <?php
 
     setcookie(COOKIE_USER, ""); // Never Expire
-    bindAndRenderTemplate(__DIR__ . "/template.html", null);
+    echo "<meta http-equiv=\"refresh\" content=\"0;url=?page=index\">";
 
 ?>
