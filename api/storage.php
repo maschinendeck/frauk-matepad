@@ -17,10 +17,15 @@
 		public $coffein;
 	}
 
-	class Storage {
-		private $userList = array();
-		private $itemList = array();
+	class StoreStatistic {
+		public $coffeinSold;
+	}
 
+	class Storage {
+		private $userList  = array();
+		private $itemList  = array();
+		private $statistic = array();
+		
 		// ID generator
 		private function makeNewRandomID() {
 			return sha1(random_bytes(32));
@@ -100,15 +105,21 @@
 			setcookie(COOKIE_USER, ""); // Never Expire
 		}
 
+		public function getStatistic() {
+			return $this->statistic;
+		}
+
 		// Serialization
 		public function writeToDisk() {
-			file_put_contents("user.json", json_encode($this->userList, JSON_PRETTY_PRINT));
-			file_put_contents("item.json", json_encode($this->itemList, JSON_PRETTY_PRINT));
+			file_put_contents("user.json", json_encode($this->userList,  JSON_PRETTY_PRINT));
+			file_put_contents("item.json", json_encode($this->itemList,  JSON_PRETTY_PRINT));
+			file_put_contents("stat.json", json_encode($this->statistic, JSON_PRETTY_PRINT));
 		}
 
 		public function readFromDisk() {
-			$this->userList = json_decode(file_get_contents("user.json"));
-			$this->itemList = json_decode(file_get_contents("item.json"));
+			$this->userList  = json_decode(file_get_contents("user.json"));
+			$this->itemList  = json_decode(file_get_contents("item.json"));
+			$this->statistic = json_decode(file_get_contents("stat.json"));
 		}
 	}
 ?>
