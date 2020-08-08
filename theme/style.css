@@ -148,6 +148,7 @@ p {
     width: 8em;
     height: 3em;
     background-color: #333;
+    text-decoration: none;
 }
 
 .index-user > p {
