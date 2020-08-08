@@ -8,6 +8,13 @@
         $user = $store->getUserByID($currentUser->id);
         $user->balance -= $item->costs;
 
+        // Register the sale in the user history
+        $sale = new Sale;
+        $sale->datetime = time();
+        $sale->itemid = $item->id;
+        $sale->price = $item->costs;
+        array_push($user->sales, $sale);
+        
         // Adjust Statistic
         $store->getStatistic()->coffeinSold += $item->coffein;
 

@@ -6,6 +6,13 @@
 		public $name;
 		public $avatar;
 		public $balance;
+		public $sales;
+	}
+
+	class Sale {
+		public $datetime;
+		public $itemid;
+		public $price;
 	}
 
 	// This class can only contain data, functions will be lost on de/serialization
@@ -62,6 +69,7 @@
 		// User Functions
 		public function createUser($user) {
 			$user->id = $this->makeNewRandomID();
+			$user->sales = array();
 			array_push($this->userList, $user);
 		}
 
