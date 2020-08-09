@@ -9,9 +9,9 @@
         $store->createItem($item);
         $store->writeToDisk();
         
-        bindAndRenderTemplate(__DIR__ . "/template_post.html", null);
+        bindAndRenderTemplate("item_create_post.html", null);
     } else {
-        bindAndRenderTemplate(__DIR__ . "/template_pre.html", null);
+        bindAndRenderTemplate("item_create_pre.html", null);
     }
 
 ?>

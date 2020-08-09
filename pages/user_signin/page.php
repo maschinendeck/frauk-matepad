@@ -10,7 +10,7 @@
             $bindings = array(  "id" => $user->id,
                                 "name" => $user->name, 
                                 "avatar" => $user->avatar);
-            bindAndRenderTemplate(__DIR__ . "/template_user_select.html", $bindings);
+            bindAndRenderTemplate("user_select.html", $bindings);
         }
     }
 

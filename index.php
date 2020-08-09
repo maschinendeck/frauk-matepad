@@ -3,6 +3,7 @@
 	include_once "api/storage.php";
 
 	define("PATH_INCLUDE_PAGES",    "./pages/");
+	define("PATH_INCLUDE_TEMPLATE", "./templates/");
 	define("PATH_INCLUDE_THEME",    "./theme/");
 	define("PATH_INCLUDE_INDEX",    "index");
 	define("PATH_INCLUDE_404",      "file_not_found");
@@ -21,16 +22,17 @@
 	$currentUserID = isset($_COOKIE[COOKIE_USER]) ? $_COOKIE[COOKIE_USER] : "";
 	$currentUser = $store->fetchUserByID($currentUserID);
 
-	function bindAndOutputTemplate($templateFile, $binding) {
-		global $mustache;
-		if (file_exists($templateFile)) {
-			$template = file_get_contents($templateFile);
-			return $mustache->render($template, $binding);
-		}
+	function bindAndRenderTemplate($template, $binding) {
+		echo bindAndRenderTemplateToString($template, $binding);
 	}
 
-	function bindAndRenderTemplate($templateFile, $binding) {
-		echo bindAndOutputTemplate($templateFile, $binding);
+	function bindAndRenderTemplateToString($template, $binding) {
+		global $mustache;
+		$templateFile = PATH_INCLUDE_TEMPLATE . $template;
+		if (file_exists($templateFile)) {
+			$templateContent = file_get_contents($templateFile);
+			return $mustache->render($templateContent, $binding);
+		}
 	}
 
 	function loadPage($page, $plainError = false, $path = PATH_INCLUDE_PAGES) {
@@ -42,7 +44,7 @@
 			if (file_exists($requestPagePHP)) {			// Calling a 'smart' page (with php)
 				include_once($requestPagePHP);
 			} else if (file_exists($requestPageHTML)) {	// Calling a 'normal' page (no php code)
-				bindAndRenderTemplate($requestPageHTML, null);
+				echo file_get_contents($requestPageHTML);
 			}
 		} else {
 			if ($plainError) {

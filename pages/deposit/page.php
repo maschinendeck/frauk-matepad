@@ -27,7 +27,7 @@
                                                 number_format($option["value"] / 100.0, 2) . "€":
                                                 $option["value"],
                                     "image" => $option["img"]);
-            bindAndRenderTemplate(__DIR__ . "/template_deposit_option.html", $bindingsCharge);
+            bindAndRenderTemplate("deposit_option.html", $bindingsCharge);
         }
     }
 

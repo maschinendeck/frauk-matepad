@@ -10,5 +10,5 @@
 
     $bindings["coffeinTotal"] = $store->getStatistic()->coffeinSold . "mg";
 
-    bindAndRenderTemplate(__DIR__ . "/template.html", $bindings);
+    bindAndRenderTemplate("cms_head.html", $bindings);
 ?>

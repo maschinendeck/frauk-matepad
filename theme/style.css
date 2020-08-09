@@ -33,28 +33,21 @@ p {
 .header-entry {
     display: block;
     height: 100%;
+    width: 12em;
+    float: left;
     text-decoration: none;
 }
 
 .header-entry p {
     display: inline-block;
-    margin-top: 0.4em;
+    font-size: larger;
+    margin-top: 0.25em;
 }
 
 .header-user {
-    width: 12em;
-    font-size: large;
+    position: absolute;
+    right: 0;
     font-weight: bold;
-    margin-left: auto;
-}
-
-.header-new-thing {
-    width: 12em;
-    float: left;
-}
-
-.header-new-thing p {
-    font-size: larger;
 }
 
 /* Forms */

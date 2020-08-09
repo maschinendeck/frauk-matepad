@@ -6,7 +6,7 @@
                             "name" => "Deposit", 
                             "price" => "Rich Bitch",
                             "image" => "deposit.jpg");
-    bindAndRenderTemplate(__DIR__ . "/template_deposit.html", $bindingsCharge);
+    bindAndRenderTemplate("index_deposit.html", $bindingsCharge);
 
     foreach ($store->getAllItems() as $item) {
         $bindings = array(  "id" => $item->id,
@@ -14,7 +14,7 @@
                             "name" => $item->name, 
                             "price" => is_numeric($item->costs) ? number_format($item->costs / 100.0, 2) . "€" : $item->costs,
                             "image" => $item->image);
-        bindAndRenderTemplate(__DIR__ . "/template_item.html", $bindings);
+        bindAndRenderTemplate("index_item.html", $bindings);
     }
 
     if ($currentUser) {
@@ -49,16 +49,16 @@
         usort($groupedSales, function($a, $b) { return strcmp($b->date, $a->date); });
 
         // Render history
-        $userinfo = bindAndOutputTemplate(__DIR__  . "/template_head.html", array("username" => $currentUser->name));
+        $userinfo = bindAndRenderTemplateToString("index_head.html", array("username" => $currentUser->name));
         foreach ($groupedSales as $saleGroup) {
             $headerBindings = array("dateStr" => $saleGroup->dateStr);
-            $userinfo .= bindAndOutputTemplate(__DIR__ . "/template_group.html", $headerBindings);
+            $userinfo .= bindAndRenderTemplateToString("index_group.html", $headerBindings);
             foreach ($saleGroup->sales as $sale) {
                 $saleItem = $store->getItemByID($sale->itemid);
                 $saleBindings = array("time" => date("H:i:s", intval($sale->datetime)),
                                       "name" => $saleItem ? $saleItem->name : "Deleted Item",
                                       "price" => is_numeric($sale->price) ? number_format($sale->price / 100.0, 2) . "€" : $sale->price);
-                $userinfo .= bindAndOutputTemplate(__DIR__ . "/template_entry.html", $saleBindings);
+                $userinfo .= bindAndRenderTemplateToString("index_entry.html", $saleBindings);
             }
         }
 
@@ -66,7 +66,7 @@
                                 "colorStyle" => $currentUser->balance < 0 ? "balance-red" : "balance-green",
                                 "userinfo" => $userinfo);
 
-        bindAndRenderTemplate(__DIR__ . "/template_user.html", $bindingsUser);
+        bindAndRenderTemplate("index_user.html", $bindingsUser);
     }
 
     echo "</div>";

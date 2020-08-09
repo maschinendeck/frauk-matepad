@@ -22,9 +22,9 @@
         $user->signin();
 
         $bindings = array("userName" => $userName, "userAvatar" => $userAvatarFile);
-        bindAndRenderTemplate(__DIR__ . "/template_post.html", $bindings);
+        bindAndRenderTemplate("user_create_confirm.html", $bindings);
     } else {
-        bindAndRenderTemplate(__DIR__ . "/template_form.html", null);
+        bindAndRenderTemplate("user_create_form.html", null);
     }
 
 ?>

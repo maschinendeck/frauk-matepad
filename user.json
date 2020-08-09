@@ -3,7 +3,7 @@
         "id": "1973397adaa8e91334e7b4fb56ce8cd8f45d5de0",
         "name": "Seze",
         "avatar": ".\/images\/user\/avatar_Seze",
-        "balance": 150,
+        "balance": 100,
         "sales": [
             {
                 "datetime": 1596932270,
@@ -54,6 +54,11 @@
                 "datetime": 1596983707,
                 "itemid": "bea39247ea32cb021eee12da0aeb540d4e6e0c99",
                 "price": "100"
+            },
+            {
+                "datetime": 1596986537,
+                "itemid": "d91e4749455fc28084ce503af391a4d22f4cd53c",
+                "price": 150
             }
         ]
     }
