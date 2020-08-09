@@ -236,3 +236,23 @@ p {
     background-color: #333;
     font-weight: bold;
 }
+
+/* Page - Sales History */
+.history-content h1 {
+    color: #FD0;
+}
+
+.history-content a {
+    text-decoration: none;
+    color: #FD0;
+}
+
+.history-content > .group-header {
+    display: block;
+    font-weight: bolder;
+}
+
+.history-content > .group-entry {
+    display: block;
+    margin-left: 4em;
+}
