@@ -18,8 +18,54 @@
     }
 
     if ($currentUser) {
+
+        class SalesByDay {
+            public $date;
+            public $dateStr;
+            public $sales;
+    
+            function __construct($saleDate) {
+                $this->date = date("Y-m-d", $saleDate);
+                $this->dateStr = date("d-m-Y", $saleDate);
+                $this->sales = array();
+            }
+        }
+
+        // Group sales by day and sort most recent first
+        // TODO: Sort items in day
+        $groupedSales = array();
+        $currentSaleDay = null;
+        foreach ($currentUser->sales as $sale) {
+            $saleDate = date("Y-m-d", intval($sale->datetime));
+            if ($currentSaleDay == null || $currentSaleDay->date !== $saleDate) {
+                if ($currentSaleDay) {
+                    array_push($groupedSales, $currentSaleDay);
+                }
+                $currentSaleDay = new SalesByDay(intval($sale->datetime));
+            }
+            array_push($currentSaleDay->sales, $sale);
+        }
+        array_push($groupedSales, $currentSaleDay);
+        usort($groupedSales, function($a, $b) { return strcmp($b->date, $a->date); });
+
+        // Render history
+        $userinfo = bindAndOutputTemplate(__DIR__  . "/template_head.html", array("username" => $currentUser->name));
+        foreach ($groupedSales as $saleGroup) {
+            $headerBindings = array("dateStr" => $saleGroup->dateStr);
+            $userinfo .= bindAndOutputTemplate(__DIR__ . "/template_group.html", $headerBindings);
+            foreach ($saleGroup->sales as $sale) {
+                $saleItem = $store->getItemByID($sale->itemid);
+                $saleBindings = array("time" => date("H:i:s", intval($sale->datetime)),
+                                      "name" => $saleItem ? $saleItem->name : "Deleted Item",
+                                      "price" => is_numeric($sale->price) ? number_format($sale->price / 100.0, 2) . "€" : $sale->price);
+                $userinfo .= bindAndOutputTemplate(__DIR__ . "/template_entry.html", $saleBindings);
+            }
+        }
+
         $bindingsUser = array(  "balance" => number_format($currentUser->balance / 100.0, 2) . "€",
-                                "colorStyle" => $currentUser->balance < 0 ? "balance-red" : "balance-green");
+                                "colorStyle" => $currentUser->balance < 0 ? "balance-red" : "balance-green",
+                                "userinfo" => $userinfo);
+
         bindAndRenderTemplate(__DIR__ . "/template_user.html", $bindingsUser);
     }
 

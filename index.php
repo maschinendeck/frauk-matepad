@@ -21,12 +21,16 @@
 	$currentUserID = isset($_COOKIE[COOKIE_USER]) ? $_COOKIE[COOKIE_USER] : "";
 	$currentUser = $store->fetchUserByID($currentUserID);
 
-	function bindAndRenderTemplate($templateFile, $binding) {
+	function bindAndOutputTemplate($templateFile, $binding) {
 		global $mustache;
 		if (file_exists($templateFile)) {
 			$template = file_get_contents($templateFile);
-			echo $mustache->render($template, $binding);
+			return $mustache->render($template, $binding);
 		}
+	}
+
+	function bindAndRenderTemplate($templateFile, $binding) {
+		echo bindAndOutputTemplate($templateFile, $binding);
 	}
 
 	function loadPage($page, $plainError = false, $path = PATH_INCLUDE_PAGES) {

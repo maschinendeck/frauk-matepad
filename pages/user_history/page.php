@@ -40,7 +40,7 @@
             bindAndRenderTemplate(__DIR__ . "/template_group.html", $headerBindings);
             foreach ($saleGroup->sales as $sale) {
                 $saleItem = $store->getItemByID($sale->itemid);
-                $saleBindings = array("time" => date("H-i-s", intval($sale->datetime)),
+                $saleBindings = array("time" => date("H:i:s", intval($sale->datetime)),
                                       "name" => $saleItem ? $saleItem->name : "Deleted Item",
                                       "price" => is_numeric($sale->price) ? number_format($sale->price / 100.0, 2) . "€" : $sale->price);
                 bindAndRenderTemplate(__DIR__ . "/template_entry.html", $saleBindings);
