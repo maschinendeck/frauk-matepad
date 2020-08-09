@@ -113,22 +113,13 @@ p {
     background-color: green;
 }
 
-.item input[type="checkbox"] {
-    display: none;
-}
-
-.item input[type="checkbox"] + a {
-    display: none;
+.item-confirm {
     position: relative;
     width:6em;
     height: 15em;
     top: -15em;
     left: 12em;
     background-color: #333;
-}
-
-.item input[type="checkbox"]:checked + a {
-    display: block;
 }
 
 .item img {
