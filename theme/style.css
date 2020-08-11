@@ -220,9 +220,13 @@ p {
     text-decoration: none;
 }
 
-.user-select > img {
+.user-select > .image {
     display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
+    height: 12em;
 }
 
 .user-select p {
@@ -274,6 +278,7 @@ p {
     height: 100%;
     top: 0;
     right: 0;
+    pointer-events: none;
 }
 
 .index-userinfo {
