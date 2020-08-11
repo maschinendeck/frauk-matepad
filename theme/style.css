@@ -32,8 +32,8 @@ p {
 
 .header-entry {
     display: block;
-    height: 100%;
     width: 12em;
+    height: 2em;
     float: left;
     text-decoration: none;
 }
