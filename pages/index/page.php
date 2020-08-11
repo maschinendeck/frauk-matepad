@@ -45,7 +45,9 @@
             }
             array_push($currentSaleDay->sales, $sale);
         }
-        array_push($groupedSales, $currentSaleDay);
+        if ($currentSaleDay) {
+            array_push($groupedSales, $currentSaleDay);
+        }
         usort($groupedSales, function($a, $b) { return strcmp($b->date, $a->date); });
 
         // Render history
