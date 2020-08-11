@@ -10,7 +10,7 @@
 
     foreach ($store->getAllItems() as $item) {
         $bindings = array(  "id" => $item->id,
-                            "href" => $currentUser ? "?page=item_buy&id=" . $item->id : "?page=user_signin",
+                            "href" => $currentUser ? "?page=item_buy&id=" . $item->id : "?page=user_signin&iid=" . $item->id,
                             "name" => $item->name, 
                             "price" => is_numeric($item->costs) ? number_format($item->costs / 100.0, 2) . "€" : $item->costs,
                             "image" => $item->image);
