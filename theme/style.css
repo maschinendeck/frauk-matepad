@@ -1,7 +1,54 @@
+:root {
+    --accent-color : #FD0;
+}
+
+@font-face {
+    font-family: "Alata";
+    src: url("../fonts/Alata-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Regular.ttf");
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Bold.ttf");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Italic.ttf");
+    font-style: italic;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-BoldItalic.ttf");
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-Light.ttf");
+    font-weight: 100;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/OpenSans-LightItalic.ttf");
+    font-weight: 100;
+    font-style: italic;
+}
+
 /* General Stuff */
+
+a {
+    color: var(--accent-color);
+}
 
 body {
     background-color: #000;
+    font-family: "Open Sans", sans-serif;
+    user-select: none;
 }
 
 p {
@@ -16,44 +63,79 @@ p {
 }
 
 .checkboxHack input[type="checkbox"] + .checkboxHack-target {
-    display: none;
+	max-width: 0;
+    overflow: hidden;
+	padding: 0;
+    transition: all 0.2s ease-in-out;
+}
+.checkboxHack input[type=checkbox]:checked + .checkboxHack-target.index-userinfo {
+    padding: 2rem;
+    max-width: 500px;
 }
 
 .checkboxHack input[type="checkbox"]:checked + .checkboxHack-target {
-    display: block;
+	max-width: 200px;
 }
 
 /* Page Header */
 
 .header-container {
-    height: 2em;
+    display: flex;
     background-color: #333;
+    padding: 1rem 2rem;
+	flex-direction: row;
+    box-sizing: border-box;
 }
 
 .header-entry {
     display: block;
-    width: 12em;
-    height: 2em;
-    float: left;
     text-decoration: none;
+	flex-grow: 1;
+}
+.header-entry:nth-child(2) {
+    text-align: center;
+    flex-grow: 2;
+}
+.header-entry:nth-child(3) {
+    text-align: right;
 }
 
-.header-entry p {
-    display: inline-block;
+.header-entry span {
     font-size: larger;
-    margin-top: 0.25em;
 }
 
 .header-user {
-    position: absolute;
-    right: 0;
     font-weight: bold;
 }
 
 /* Forms */
 .form {
     width: 24em;
-    margin: 0em auto 0em auto;
+    margin: 0 auto;
+}
+.form p {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    grid-gap: 2rem;
+}
+.form p:last-child {
+	display: block;
+    padding: 2rem 0;
+    line-height: 2rem;
+}
+.form p input[type=text] {
+    font-size: large;
+    padding: 0.5rem;
+}
+.form input[type=submit] {
+    display: block;
+    background: var(--accent-color);
+    font-size: large;
+    padding: 0.5rem;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
 }
 
 .form > label {
@@ -80,20 +162,31 @@ p {
 
 /* Pages - Index */
 .index-content {
-    padding-right: 3em;
+	display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 3rem;
+    padding: 2rem;
 }
 
 .item {
     display: block;
-    margin: 1em;
-    float: left;
     background-color: #333;
-    width: 12em;
-    height: 15em;
+    position: relative;
+    cursor: pointer;
+}
+.item .description {
+    display: flex;
+	padding: 1rem;
+}
+.item .description > span:nth-child(1) {
+    flex-grow: 2;
+}
+.item .description > span:nth-child(2) {
+    flex-grow: 1;
 }
 
 .item-confirm p {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     margin: 0.5em;
@@ -104,14 +197,21 @@ p {
 .item-confirm .yes {
     font-weight: bold;
     background-color: green;
+	display: block;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
 }
 
 .item-confirm {
-    position: relative;
-    width:6em;
-    height: 15em;
-    top: -15em;
-    left: 12em;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    top: 0;
+    width: 30%;
+    height: 100%;
     background-color: #333;
 }
 
@@ -128,14 +228,14 @@ p {
 }
 
 .item .name {
-    margin: 4px 0px 0px 8px;
     font-weight: bold;
 }
 
 .item .price {
-    margin: 0px 8px 0px 0px;
     text-align: right;
     font-style: italic;
+	align-self: flex-end;
+	margin-bottom: -1rem;
 }
 
 .index-user {
@@ -275,7 +375,6 @@ p {
 
 .user-history-page {
     position: fixed;
-    width: 20em;
     height: 100%;
     top: 0;
     right: 0;
@@ -286,5 +385,6 @@ p {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: #333;
+    padding: 2rem;
+    background-color: rgba(0,0,0,0.8);
 }

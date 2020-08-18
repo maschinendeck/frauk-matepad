@@ -6,13 +6,17 @@
     </p>
 
     <form class="form" action="?page=user_create" method="post">
-        <label for="name">Name</label>
-        <input type="text" name="name"/>
-        <label for="avatar">Avatar URL</label>
-        <input type="text" name="avatar"/>
-        <input type="submit" value="Create Account">
-        <a href="?page=user_signin">
-            <p>Or SignIn Instead</p>
-        </a>
+	    <p>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name"/>
+        </p>
+	    <p>
+            <label for="avatar">Avatar URL</label>
+            <input type="text" id="avatar" name="avatar"/>
+        </p>
+	    <p>
+            <input type="submit" value="Create Account"><br />
+            <a href="?page=user_signin">Or SignIn Instead</a>
+        </p>
     </form>
 </div>
