@@ -1,5 +1,7 @@
 <?php
-	require("./mustache/src/Mustache/Autoloader.php");
+	
+	require __DIR__ . "/vendor/autoload.php";
+	//require("./mustache/src/Mustache/Autoloader.php");
 	include_once "api/storage.php";
 
 	define("PATH_INCLUDE_PAGES",    "./pages/");
@@ -13,7 +15,7 @@
 	define("COOKIE_USER",           "userCookie");
 
 	// Mustache Template Engine
-	Mustache_Autoloader::register();
+	//Mustache_Autoloader::register();
 	$mustache = new Mustache_Engine();
 
 	// Fetch database and read session cookie for later use by page
