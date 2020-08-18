@@ -1,6 +1,7 @@
 <?php
 
     if (isset($_POST["name"])) {
+        $userName = $_POST["name"];
 
         // Download the avatar (if any)
         $userAvatarFile = "./images/user/anon.jpg";
@@ -19,8 +20,6 @@
                 bindAndRenderTemplate("error.html", $bindings);
             }
         }
-
-        $userName = $_POST["name"];
 
         // Create user and submit to store
         $user = new UserData;
