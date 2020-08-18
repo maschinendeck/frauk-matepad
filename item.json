@@ -47,5 +47,19 @@
         "costs": "100",
         "coffein": 0,
         "image": "fritz_limo.jpg"
+    },
+    {
+        "id": "0f3dc5baa3438988cf54961085315f3dd3fec8d2",
+        "name": "MioMio Brause",
+        "costs": "100",
+        "image": "miomio_brause.jpg",
+        "coffein": null
+    },
+    {
+        "id": "c70d293069d380c0ae97c4b69b84a0c53dce0b79",
+        "name": "Apfel Schorle",
+        "costs": "50",
+        "image": "apfelschorle.jpg",
+        "coffein": null
     }
 ]
