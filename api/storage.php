@@ -119,15 +119,15 @@
 
 		// Serialization
 		public function writeToDisk() {
-			file_put_contents("user.json", json_encode($this->userList,  JSON_PRETTY_PRINT));
-			file_put_contents("item.json", json_encode($this->itemList,  JSON_PRETTY_PRINT));
-			file_put_contents("stat.json", json_encode($this->statistic, JSON_PRETTY_PRINT));
+			file_put_contents("data/user.json", json_encode($this->userList,  JSON_PRETTY_PRINT));
+			file_put_contents("data/item.json", json_encode($this->itemList,  JSON_PRETTY_PRINT));
+			file_put_contents("data/stat.json", json_encode($this->statistic, JSON_PRETTY_PRINT));
 		}
 
 		public function readFromDisk() {
-			$this->userList  = json_decode(file_get_contents("user.json"));
-			$this->itemList  = json_decode(file_get_contents("item.json"));
-			$this->statistic = json_decode(file_get_contents("stat.json"));
+			$this->userList  = json_decode(file_get_contents("data/user.json"));
+			$this->itemList  = json_decode(file_get_contents("data/item.json"));
+			$this->statistic = json_decode(file_get_contents("data/stat.json"));
 		}
 	}
 ?>
