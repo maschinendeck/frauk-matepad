@@ -1,5 +1,6 @@
 <?php
-	require("./mustache/src/Mustache/Autoloader.php");
+	require __DIR__ . '/vendor/autoload.php';
+
 	include_once "api/storage.php";
 
 	define("PATH_INCLUDE_PAGES",    "./pages/");

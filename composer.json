@@ -1,0 +1,7 @@
+{
+    "name": "maschinendeck/matepad",
+    "type": "project",
+    "require": {
+        "mustache/mustache": "^2.13"
+    }
+}
