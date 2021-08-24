@@ -14,7 +14,7 @@
         foreach ($store->getAllUser() as $user) {
             $bindings = array(  "id" => $user->id,
                                 "name" => $user->name, 
-                                "avatar" => $user->avatar === "./images/user/anon.jpg" ? "/theme/anon.jpg" : $user->avatar ,
+                                "avatar" => $user->avatar === "./images/user/anon.jpg" ? "theme/anon.jpg" : $user->avatar ,
                                 "attriid" => isset($_GET["iid"]) ? "&iid=" . $_GET["iid"] : "");
             bindAndRenderTemplate("user_select.html", $bindings);
         }
