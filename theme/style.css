@@ -2,6 +2,7 @@
 
 body {
     background-color: #000;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p {
@@ -16,38 +17,41 @@ p {
 }
 
 .checkboxHack input[type="checkbox"] + .checkboxHack-target {
-    display: none;
+	transform-origin: center right;
+	transform: scaleX(0);
+	transition: all 0.2s ease-in-out;
 }
 
 .checkboxHack input[type="checkbox"]:checked + .checkboxHack-target {
-    display: block;
+	transform: scaleX(1);
 }
 
 /* Page Header */
 
 .header-container {
-    height: 2em;
     background-color: #333;
+	display: flex;
+	padding: 0.8rem 2rem;
 }
 
 .header-entry {
     display: block;
-    width: 12em;
-    height: 2em;
-    float: left;
     text-decoration: none;
+	flex-grow: 1;
+}
+.header-entry:nth-child(2) {
+	text-align: center;
 }
 
 .header-entry p {
     display: inline-block;
     font-size: larger;
-    margin-top: 0.25em;
+	margin: 0;
 }
 
 .header-user {
-    position: absolute;
-    right: 0;
     font-weight: bold;
+	text-align: right;
 }
 
 /* Forms */
@@ -80,16 +84,35 @@ p {
 
 /* Pages - Index */
 .index-content {
-    padding-right: 3em;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-gap: 2rem;
+	padding: 2rem;
 }
 
 .item {
     display: block;
-    margin: 1em;
-    float: left;
     background-color: #333;
-    width: 12em;
-    height: 15em;
+	padding-bottom: 0.5rem;
+}
+
+.item .image {
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.item .description {
+	display: flex;
+	padding: 0.5rem 1rem;
+}
+
+.item p.name {
+	flex-grow: 1;
+	margin: 0;
+}
+.item p.price {
+	flex-grow: 2;
+	margin: 0;
 }
 
 .item-confirm p {
@@ -99,19 +122,24 @@ p {
     margin: 0.5em;
     width: 5em;
     height: 15em;
+	box-sizing: border-box;
 }
 
 .item-confirm .yes {
     font-weight: bold;
     background-color: green;
+	height: 100%;
+	box-sizing: border-box;
+	margin: 0;
+	width: 100%;
 }
 
 .item-confirm {
-    position: relative;
+    position: absolute;
     width:6em;
-    height: 15em;
-    top: -15em;
-    left: 12em;
+	height: 100%;
+	top: 0;
+	right: 0;
     background-color: #333;
 }
 
@@ -213,12 +241,13 @@ p {
 
 /* Page - User SignIn Selection */
 .user-select {
-    margin: 1em;
-    float: left;
-    width: 12em;
-    height: 15em;
     background-color: #FFF;
     text-decoration: none;
+}
+
+.user-select img {
+	width: 100%;
+	object-fit: contain;
 }
 
 .user-select > .image {

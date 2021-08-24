@@ -1,5 +1,6 @@
 <?php
   
+    echo "<div class=\"index-content\">";
     if (isset($_GET["user"])) {
         $user = $store->getUserByID($_GET["user"]);
         $store->signinUser($_GET["user"]);
@@ -13,10 +14,11 @@
         foreach ($store->getAllUser() as $user) {
             $bindings = array(  "id" => $user->id,
                                 "name" => $user->name, 
-                                "avatar" => $user->avatar,
+                                "avatar" => $user->avatar === "./images/user/anon.jpg" ? "/theme/anon.jpg" : $user->avatar ,
                                 "attriid" => isset($_GET["iid"]) ? "&iid=" . $_GET["iid"] : "");
             bindAndRenderTemplate("user_select.html", $bindings);
         }
     }
+    echo "</div>";
 
 ?>
