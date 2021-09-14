@@ -1,4 +1,5 @@
 <?php
+    echo "<div class=\"index-content\">";
 
     if (isset($_GET["value"]) && $currentUser) {
         $currentUser->balance += $_GET["value"];
@@ -24,11 +25,11 @@
 
             $bindingsCharge = array("href" => $linkTo,
                                     "value" => is_numeric($option["value"]) ? 
-                                                number_format($option["value"] / 100.0, 2) . "€":
+                                                number_format($option["value"] / 100.0, 2) :
                                                 $option["value"],
                                     "image" => $option["img"]);
             bindAndRenderTemplate("deposit_option.html", $bindingsCharge);
         }
     }
 
-?>
+	echo "</div>";

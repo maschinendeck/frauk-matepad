@@ -12,7 +12,7 @@
         $bindings = array(  "id" => $item->id,
                             "href" => $currentUser ? "?page=item_buy&id=" . $item->id : "?page=user_signin&iid=" . $item->id,
                             "name" => $item->name, 
-                            "price" => is_numeric($item->costs) ? number_format($item->costs / 100.0, 2) . "€" : $item->costs,
+                            "price" => is_numeric($item->costs) ? number_format($item->costs / 100.0, 2) : $item->costs,
                             "image" => $item->image);
         bindAndRenderTemplate("index_item.html", $bindings);
     }
@@ -59,12 +59,12 @@
                 $saleItem = $store->getItemByID($sale->itemid);
                 $saleBindings = array("time" => date("H:i:s", intval($sale->datetime)),
                                       "name" => $saleItem ? $saleItem->name : "Deleted Item",
-                                      "price" => is_numeric($sale->price) ? number_format($sale->price / 100.0, 2) . "€" : $sale->price);
+                                      "price" => is_numeric($sale->price) ? number_format($sale->price / 100.0, 2) : $sale->price);
                 $userinfo .= bindAndRenderTemplateToString("index_entry.html", $saleBindings);
             }
         }
 
-        $bindingsUser = array(  "balance" => number_format($currentUser->balance / 100.0, 2) . "€",
+        $bindingsUser = array(  "balance" => number_format($currentUser->balance / 100.0, 2),
                                 "colorStyle" => $currentUser->balance < 0 ? "balance-red" : "balance-green",
                                 "userinfo" => $userinfo);
 
